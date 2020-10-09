@@ -1,0 +1,18 @@
+﻿<h1>Paikkakunnat</h1>
+
+<div id="formArea">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p id="inputArea">
+            <label>Paikkakunnan nimi</label>
+            <input type="text" formControlName="paikkakunta" />
+        </p>
+        <p id="submitArea">
+            <button type="submit" [disabled]="!form.valid">Tallenna</button>
+        </p>
+    </form>
+</div>
+
+<p id="locationTitle">Lisätyt paikkakunnat:</p>
+<ul class="locationList">
+    <li *ngFor="let kunta of service.locationList"> {{kunta.place}} <p (click)="removeLocation(kunta)">X</p></li>
+</ul>

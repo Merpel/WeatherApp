@@ -1,0 +1,58 @@
+
+h1 {
+  width: 14em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  margin-bottom: 0.4em;
+  margin-left: 5.4em;
+}
+
+form {
+  padding: 2em;
+}
+
+#formArea {
+  width: 25em;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: gray;
+  background-color: snow;
+  margin-left: 18.4em;
+}
+
+.inputArea, .selectorArea {
+  text-align: left;
+}
+
+  .inputArea label, .selectorArea {
+    margin-right: 0.4em;
+  }
+
+    .inputArea input, .selectorArea select {
+      float: right;
+    }
+
+#submitArea {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.submitArea button, .editButton {
+  border: none;
+  border-radius: 6px;
+  background-color: gainsboro;
+}
+
+#listTitle {
+  margin-top: 0.4em;
+  margin-left: 11em;
+}
+
+.listTable {
+  padding: 0.3em;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+  background-color: snow;
+}

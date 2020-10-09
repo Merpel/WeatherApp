@@ -1,0 +1,65 @@
+<h1 id="tableLabel">Säätietojen visualisointi pylväsdiagrammein</h1>
+
+<div id="formArea">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p class="inputArea">
+            <label>Aloitus päivämäärä:</label>
+            <input type="date" formControlName="startDate" />
+        </p>
+        <p class="inputArea">
+            <label>Lopetus päivämäärä:</label>
+            <input type="date" formControlName="endDate" />
+        </p>
+        <div class="inputSelectorArea">
+            <div *ngFor="let paikka of service.locationList; let i=index">
+                <input type="checkbox" [value]="paikka.place" (change)="onCheckboxChange($event)" /> {{paikka.place}}
+            </div>
+        </div>
+        <p class="submitArea">
+            <button type="submit">Tallenna suodatukset</button>
+        </p>
+    </form>
+</div>
+
+<button (click)="showGraphs()" class="graphButton">Näytä graafit</button>
+
+<p class="infoAlert" *ngIf="noMatch">Tietokannassa ei ole kaikkia valintoja vastaavaa dataa</p>
+
+<p class="infoAlert" *ngIf="endDate === '' && startDate !== '' ">Molemmat kalenteritiedot tarvitaan aikavälisuodatukseen.</p>
+<p class="infoAlert" *ngIf="endDate !== '' && startDate === '' ">Molemmat kalenteritiedot tarvitaan aikavälisuodatukseen.</p>
+
+<div id="tempChart" class="chart-wrapper">
+    <canvas *ngIf="barChartDataFirst.length > 0" baseChart
+            [datasets]="barChartDataFirst"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [colors]="barChartColorsTemp"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+</div>
+
+<div id="windChart" class="chart-wrapper">
+    <canvas *ngIf="barChartDataSecond.length > 0" baseChart
+            [datasets]="barChartDataSecond"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [colors]="barChartColorsWind"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+</div>
+
+<div id="rainChart" class="chart-wrapper">
+    <canvas *ngIf="barChartDataThird.length > 0" baseChart
+            [datasets]="barChartDataThird"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [colors]="barChartColorsRain"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+</div>

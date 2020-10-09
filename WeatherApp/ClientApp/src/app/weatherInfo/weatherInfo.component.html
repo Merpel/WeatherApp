@@ -1,0 +1,58 @@
+<h1>Säätietojen lisäys ja muokkaus</h1>
+
+<div id="formArea">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <p class="inputArea">
+            <label>Päivän lämpötila</label>
+            <input type="number" formControlName="temperature" />
+        </p>
+        <p class="inputArea">
+            <label>Sademäärä</label>
+            <input type="number" formControlName="rain" />
+        </p>
+        <p class="inputArea">
+            <label>Tuulen nopeus</label>
+            <input type="number" formControlName="wind" />
+        </p>
+        <p class="inputArea">
+            <label>Päivämäärä</label>
+            <input type="date" formControlName="pvm" />
+        </p>
+        <p class="selectorArea">
+            Paikkakunta:
+            <select formControlName="paikka">
+                <option value="">Valitse paikkakunta</option>
+                <option *ngFor="let kunta of service.locationList" [ngValue]="kunta.place"> {{kunta.place}}</option>
+            </select>
+        </p>
+        <p id="submitArea">
+            <button type="submit" [disabled]="!form.valid">Tallenna</button>
+        </p>
+    </form>
+</div>
+
+<h2 id="listTitle">Listaus säätiedoista: </h2>
+<div class="listTable">
+    <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>
+            <tr>
+                <th>Päivämäärä</th>
+                <th>Lämpötila</th>
+                <th>Tuulen nopeus</th>
+                <th>Sademäärä</th>
+                <th>Paikkakunta</th>
+                <th>Muokkaus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let forecast of service.list" ng-click="populateForm(forecast)">
+                <td>{{ forecast.date | date : 'dd/MM/yyyy'}} </td>
+                <td>{{ forecast.temperature }}</td>
+                <td>{{ forecast.wind }}</td>
+                <td>{{ forecast.rain }}</td>
+                <td>{{ forecast.place }}</td>
+                <td><button class="editButton" (click)="populateForm(forecast)">Muokkaa tietoja</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

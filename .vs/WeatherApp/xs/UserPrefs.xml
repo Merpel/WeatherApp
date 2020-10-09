@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{F36021B4-18D3-4424-8CE1-81A01294CD5A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherApp/ClientApp/src/app/weather-info.service.ts">
+    <Files>
+      <File FileName="WeatherApp/ClientApp/src/app/weather-info.service.ts" Line="56" Column="98" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WeatherApp" expanded="True">
+            <Node name="WeatherApp" expanded="True">
+              <Node name="ClientApp" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="app" expanded="True">
+                    <Node name="weatherInfo" expanded="True" />
+                    <Node name="weather-info.service.ts" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WeatherApp PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
